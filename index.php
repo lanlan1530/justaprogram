@@ -17,7 +17,7 @@
             $score_key = 'group_score_' . $i;
             $group_score_content .= $_POST[$score_key] ?? '';
             if ($i < 10) {
-                $group_score_content .= ' '; // 添加空格分隔符
+                $group_score_content .= ' ';
             }
         }
 
