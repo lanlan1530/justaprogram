@@ -11,7 +11,10 @@ def reload():
     s1=names.read().split()
     s2=num.read().split()
     for i in range(len(s1)):
-        ShowString+=s1[i]+"                                                         "+s2[i]+'\n'
+        ShowString+=s1[i]
+        for l in range(40-len(s1)-len[s2]):
+            ShowString+=' '
+        ShowString+=s2[i]
     names.close()
     num.close()
     FinalShow.set(ShowString)
