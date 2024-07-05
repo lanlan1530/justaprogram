@@ -1,2 +1,2 @@
 # justaprogram
-for my class
+for my c

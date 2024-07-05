@@ -1,42 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>编辑文件</title>
-</head>
-<body>
-    <?php
-    $group_name_content = file_get_contents('GroupName');
-    $group_score_content = file_get_contents('GroupScore');
-    $group_scores = explode(' ', $group_score_content);
+<?php $group_name_content = file_get_contents('GroupName');
+$group_score_content = file_get_contents('GroupScore');
+$group_scores = explode(' ', $group_score_content);
+$group_names=explode(' ',$group_name_content)
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $group_name_content = $_POST['group_name'] ?? '';
-        
-        $group_score_content = '';
-        for ($i = 1; $i <= 10; $i++) {
-            $score_key = 'group_score_' . $i;
-            $group_score_content .= $_POST[$score_key] ?? '';
-            if ($i < 10) {
-                $group_score_content .= ' ';
-            }
-        }
-
-        file_put_contents('GroupName', $group_name_content);
-        file_put_contents('GroupScore', $group_score_content);
-    }
-    ?>
-
-    <form method="post" action="">
-        <label for="group_name">GroupName:</label><br>
-        <input type="text" id="group_name" name="group_name" value="<?php echo htmlspecialchars($group_name_content); ?>"><br><br>
-
-        <label for="group_score">GroupScore:</label><br>
-        <?php for ($i = 1; $i <= 10; $i++) : ?>
-            <input type="text" id="group_score_<?php echo $i; ?>" name="group_score_<?php echo $i; ?>" value="<?php echo isset($group_scores[$i - 1]) ? htmlspecialchars($group_scores[$i - 1]) : ''; ?>"><br><br>
-        <?php endfor; ?>
-
-        <input type="submit" name="read" value="读取">
-        <input type="submit" name="write" value="写入">
-    </form>
-</body>
-</html>
+ ?>
+ <table border=1 cellpadding=0 cellspacing=0 width=360 style='border-collapse:
+ collapse;table-layout:fixed;width:270pt'>
+ <col width=36 span=10 style='width:54pt'>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=middle width=36 style='height:14.25pt;width:54pt'>Web v1.1</td>
+  <td align=middle width=36 style='width:54pt'><?php echo $group_scores[0];?></td>
+  <td align=middle width=36 style='width:54pt'><?php echo $group_scores[1];?></td>
+  <td align=middle width=36 style='width:54pt'><?php echo $group_scores[2];?></td>
+  <td align=middle width=36 style='width:54pt'><?php echo $group_scores[3];?></td>
+  <td align=middle width=36 style='width:54pt'><?php echo $group_scores[4];?></td>
+  <td align=middle width=36 style='width:54pt'><?php echo $group_scores[5];?></td>
+  <td align=middle width=36 style='width:54pt'><?php echo $group_scores[6];?></td>
+  <td align=middle width=36 style='width:54pt'><?php echo $group_scores[7];?></td>
+  <td align=middle width=36 style='width:54pt'><?php echo $group_scores[8];?></td>
+  <td align=middle width=36 style='width:54pt'><?php echo $group_scores[9];?></td> 
+  <td align=middle width=36 style='width:54pt'><?php echo $group_scores[10];?></td>
+</tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=middle style='height:14.25pt'>App v1.0.4</td>
+  <td align=middle><?php echo $group_names[0];?></td>
+  <td align=middle><?php echo $group_names[1];?></td>
+  <td align=middle><?php echo $group_names[2];?></td>
+  <td align=middle><?php echo $group_names[3];?></td>
+  <td align=middle><?php echo $group_names[4];?></td>
+  <td align=middle><?php echo $group_names[5];?></td>
+  <td align=middle><?php echo $group_names[6];?></td>
+  <td align=middle><?php echo $group_names[7];?></td>
+  <td align=middle><?php echo $group_names[8];?></td>
+  <td align=middle><?php echo $group_names[9];?></td>
+  <td align=middle><?php echo $group_names[10];?></td>
+ </tr>
+<Button onclick='window.location.replace("index2.php")'>Edit</Button>
